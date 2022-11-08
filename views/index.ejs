@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/recursos/style.css">
+</head>
+<body>
+    si quiere crear uno nuevo => <a href="/mongooses/nuevo">crear</a><br><br>
+    <ul>
+        <% for (var x in animales) { %>
+            <li>
+                <h1><a href="/mongooses/<%= animales[x]._id %>"><%= animales[x].nombre %></a> :: <%= animales[x].tipo %></h1> 
+                <a href="/mongooses/editar/<%= animales[x]._id %>"><button>editar</button></a> :: 
+                <form action="/mongooses/destruir/<%= animales[x]._id %>" method="post">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </li>
+        <% } %>
+    </ul>
+    
+</body>
+</html>
